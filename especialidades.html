@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Especialidades - Hospital General San Miguel</title>
+  <style>
+    /* Variables de colores (consistentes con el estilo del hospital) */
+    :root {
+      --primary-color: #003366;
+      --secondary-color: #2980b9;
+      --accent-color: #f39c12;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+    }
+
+    /* Estilos básicos */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* Barra superior de contacto rápido */
+    .top-bar {
+      background-color: var(--dark-color);
+      color: #fff;
+      font-size: 0.9rem;
+      padding: 5px 0;
+    }
+    .top-bar .contact-quick {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 15px;
+      margin-right: 1rem;
+    }
+    .top-bar .contact-quick p {
+      margin: 0;
+    }
+
+    /* Encabezado principal */
+    header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: #fff;
+      padding: 20px 0;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .header-brand {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      height: 60px;
+      margin-right: 15px;
+    }
+    .logo-text h1 {
+      font-size: 1.8rem;
+      margin-bottom: 5px;
+    }
+    .logo-text p {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Navegación */
+    nav {
+      background-color: var(--secondary-color);
+    }
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-menu li {
+      position: relative;
+    }
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+      transition: background-color 0.3s;
+    }
+    .nav-menu a:hover {
+      background-color: var(--primary-color);
+    }
+
+    /* Título de sección */
+    .section-title {
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      position: relative;
+      padding-bottom: 15px;
+    }
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--accent-color);
+    }
+
+    /* Sección de Especialidades */
+    .specialties-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .specialty-card {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .specialty-card:hover {
+      transform: translateY(-3px);
+    }
+    .specialty-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .specialty-content {
+      padding: 1.5rem;
+    }
+    .specialty-content h3 {
+      color: var(--dark-color);
+      margin-bottom: 0.75rem;
+    }
+    .specialty-content p {
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      background-color: var(--accent-color);
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #e67e22;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: var(--dark-color);
+      color: #fff;
+      padding: 30px 0;
+      text-align: center;
+    }
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin: 0 auto;
+      width: 90%;
+      max-width: 1200px;
+    }
+    .footer-column h3 {
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    .footer-column h3::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: var(--accent-color);
+    }
+    .footer-links {
+      list-style: none;
+      margin-top: 10px;
+    }
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+    .footer-links a {
+      color: #bbb;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover {
+      color: white;
+    }
+    .footer-bottom {
+      margin-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 20px;
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .top-bar .contact-quick {
+        justify-content: center;
+      }
+      .header-brand {
+        flex-direction: column;
+        text-align: center;
+      }
+      .nav-menu {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Barra superior con información de contacto -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="contact-quick">
+        <p>Tel: (01) 555-5678</p>
+        <p>Email: contacto@hospitalsanmiguel.gob</p>
+        <p>Horario: Lunes - Viernes: 8:00 - 17:00</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encabezado principal -->
+  <header>
+    <div class="container">
+      <div class="header-brand">
+        <div class="logo">
+          <img src="https://via.placeholder.com/60x60" alt="Logo Hospital">
+          <div class="logo-text">
+            <h1>Hospital General San Miguel</h1>
+            <p>Cerca de ti, por tu salud</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <nav>
+      <div class="container">
+        <ul class="nav-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hospital.html">El Hospital</a></li>
+          <li><a href="especialidades.html" style="background-color: var(--primary-color);">Especialidades</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sección principal: Especialidades -->
+  <main class="container">
+    <div class="section-title">
+      <h2>Nuestras Especialidades</h2>
+    </div>
+
+    <section class="specialties-section">
+      <!-- Tarjeta de especialidad 1 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Cardiología">
+        <div class="specialty-content">
+          <h3>Cardiología</h3>
+          <p>Contamos con cardiólogos expertos y tecnología de vanguardia para el cuidado de tu corazón.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de especialidad 2 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Pediatría">
+        <div class="specialty-content">
+          <h3>Pediatría</h3>
+          <p>Atención especializada para el cuidado integral de los más pequeños de la casa.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de especialidad 3 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Ginecología">
+        <div class="specialty-content">
+          <h3>Ginecología</h3>
+          <p>Servicios profesionales y confidenciales para la salud femenina en todas las etapas de la vida.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de especialidad 4 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Neurología">
+        <div class="specialty-content">
+          <h3>Neurología</h3>
+          <p>Diagnóstico y tratamiento efectivo de enfermedades del sistema nervioso a cargo de especialistas.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de especialidad 5 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Traumatología">
+        <div class="specialty-content">
+          <h3>Traumatología</h3>
+          <p>Amplia experiencia en el manejo de lesiones y afecciones del sistema musculoesquelético.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+
+      <!-- Tarjeta de especialidad 6 -->
+      <div class="specialty-card">
+        <img src="https://via.placeholder.com/500x300" alt="Oncología">
+        <div class="specialty-content">
+          <h3>Oncología</h3>
+          <p>Un compromiso firme con la detección temprana y tratamiento integral de diversos tipos de cáncer.</p>
+          <a href="#" class="btn">Más detalles</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Acerca de Nosotros</h3>
+        <p>
+          El Hospital General San Miguel brinda servicios de salud de alta calidad, priorizando la seguridad y la dignidad de la población.
+        </p>
+      </div>
+      <div class="footer-column">
+        <h3>Enlaces de Interés</h3>
+        <ul class="footer-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="hospital.html">El Hospital</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Contáctenos</h3>
+        <p>Dirección: Av. Principal 123, San Miguel</p>
+        <p>Teléfono: (01) 555-5678</p>
+        <p>Email: contacto@hospitalsanmiguel.gob</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2023 Hospital General San Miguel. Todos los derechos reservados.
+    </div>
+  </footer>
+
+</body>
+</html>

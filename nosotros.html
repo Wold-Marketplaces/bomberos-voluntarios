@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Cuerpo de Bomberos Voluntarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #CD2626;
+            --secondary-color: #8B0000;
+            --accent-color: #FFD700;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilos base y header */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .contact-quick {
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9em;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Estilos específicos para la página Nosotros */
+        .about-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                       url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .about-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .mission-card i, .vision-card i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .history-section {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .history-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: justify;
+        }
+
+        .values-section {
+            padding: 50px 0;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .value-card i {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .team-section {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .team-member img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .team-info h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            color: var(--primary-color);
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2em;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-quick {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior con información de contacto -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-quick">
+                <p>Emergencias: 116</p>
+                <p>Email: contacto@bomberosvoluntarios.gob</p>
+                <p>Atención: 24/7</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="prevencion.html">Prevención</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section específico para Nosotros -->
+    <section class="about-hero">
+        <h1>Nuestra Historia y Compromiso</h1>
+        <p>Más de 50 años al servicio de la comunidad</p>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="about-content">
+        <div class="mission-vision">
+            <div class="mission-card">
+                <i class="fas fa-fire-extinguisher"></i>
+                <h2>Nuestra Misión</h2>
+                <p>Salvaguardar la vida y el patrimonio de la comunidad mediante la prevención, control y extinción de incendios, así como la atención de emergencias con profesionalismo y dedicación.</p>
+            </div>
+            <div class="vision-card">
+                <i class="fas fa-shield-alt"></i>
+                <h2>Nuestra Visión</h2>
+                <p>Ser una institución líder en la prevención y atención de emergencias, reconocida por su excelencia, innovación y compromiso con la seguridad de la comunidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historia -->
+    <section class="history-section">
+        <div class="about-content">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            <div class="history-content">
+                <p>Fundado en 1970, el Cuerpo de Bomberos Voluntarios ha sido un pilar fundamental en la protección y seguridad de nuestra comunidad. A lo largo de más de cinco décadas, hemos evolucionado constantemente, incorporando nuevas tecnologías y mejorando nuestras capacidades para hacer frente a los desafíos modernos.</p>
+                <br>
+                <p>Desde nuestros humildes inicios con una pequeña brigada y un único camión, hasta convertirnos en una institución moderna con múltiples estaciones y equipamiento especializado, nuestra dedicación al servicio público ha permanecido inquebrantable.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores -->
+    <section class="values-section">
+        <div class="about-content">
+            <div class="section-title">
+                <h2>Nuestros Valores</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Vocación de Servicio</h3>
+                    <p>Dedicación desinteresada al servicio de la comunidad.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Compromiso</h3>
+                    <p>Responsabilidad y entrega en cada acción que realizamos.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Trabajo en Equipo</h3>
+                    <p>Colaboración y apoyo mutuo en cada emergencia.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-medal"></i>
+                    <h3>Excelencia</h3>
+                    <p>Búsqueda constante de la mejora y profesionalismo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Equipo de Liderazgo -->
+    <section class="team-section">
+        <div class="about-content">
+            <div class="section-title">
+                <h2>Nuestro Equipo de Liderazgo</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300" alt="Comandante General">
+                    <div class="team-info">
+                        <h3>Cmdte. Juan Pérez</h3>
+                        <p>Comandante General</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300" alt="Segundo Comandante">
+                    <div class="team-info">
+                        <h3>Cmdte. María García</h3>
+                        <p>Segunda Comandante</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/300x300" alt="Jefe de Operaciones">
+                    <div class="team-info">
+                        <h3>Cap. Carlos Rodríguez</h3>
+                        <p>Jefe de Operaciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Acerca de Nosotros</h3>
+                    <p>El Cuerpo de Bomberos Voluntarios está dedicado a la protección de vidas y propiedades en nuestra comunidad.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces de Interés</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contáctenos</h3>
+                    <p>Dirección: Av. Principal N° 123</p>
+                    <p>Emergencias: 116</p>
+                    <p>Email: contacto@bomberosvoluntarios.gob</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 Cuerpo de Bomberos Voluntarios. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</qodoArtifact>
+

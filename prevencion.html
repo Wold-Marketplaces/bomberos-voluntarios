@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevención - Cuerpo de Bomberos Voluntarios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #CD2626;
+            --secondary-color: #8B0000;
+            --accent-color: #FFD700;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Estilos del header y navegación */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .top-bar {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 0;
+        }
+
+        .contact-quick {
+            display: flex;
+            justify-content: space-around;
+            font-size: 0.9em;
+        }
+
+        nav {
+            background-color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .nav-menu li a:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Estilos específicos de prevención */
+        .prevention-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://via.placeholder.com/1920x600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .prevention-hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .prevention-tips {
+            padding: 50px 0;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tip-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .tip-card i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .prevention-guides {
+            background-color: #f5f5f5;
+            padding: 50px 0;
+        }
+
+        .guide-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .guide-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .guide-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .guide-content {
+            padding: 20px;
+        }
+
+        .btn-download {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 15px;
+        }
+
+        .btn-download:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .emergency-section {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .emergency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .emergency-item {
+            padding: 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 10px;
+        }
+
+        .emergency-item i {
+            font-size: 2.5em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .prevention-hero h1 {
+                font-size: 2em;
+            }
+
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .contact-quick {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-quick">
+                <p>Emergencias: 116</p>
+                <p>Email: contacto@bomberosvoluntarios.gob</p>
+                <p>Atención: 24/7</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navegación -->
+    <nav>
+        <div class="container">
+            <ul class="nav-menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="servicios.html">Servicios</a></li>
+                <li><a href="prevencion.html">Prevención</a></li>
+                <li><a href="noticias.html">Noticias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="prevention-hero">
+        <h1>Prevención de Incendios</h1>
+        <p>La mejor manera de combatir un incendio es prevenirlo</p>
+    </section>
+
+    <!-- Consejos de Prevención -->
+    <section class="prevention-tips">
+        <div class="container">
+            <h2>Consejos de Seguridad</h2>
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <i class="fas fa-smoke-detector"></i>
+                    <h3>Detectores de Humo</h3>
+                    <p>Instale detectores de humo en cada nivel de su hogar y revise las baterías mensualmente.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-plug"></i>
+                    <h3>Seguridad Eléctrica</h3>
+                    <p>No sobrecargue los tomacorrientes y revise regularmente el estado de los cables eléctricos.</p>
+                </div>
+                <div class="tip-card">
+                    <i class="fas fa-fire"></i>
+                    <h3>Plan de Evacuación</h3>
+                    <p>Desarrolle y practique un plan de evacuación con su familia regularmente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guías de Prevención -->
+    <section class="prevention-guides">
+        <div class="container">
+            <h2>Guías y Recursos</h2>
+            <div class="guide-list">
+                <div class="guide-item">
+                    <img src="https://via.placeholder.com/400x200" alt="Guía de Prevención">
+                    <div class="guide-content">
+                        <h3>Manual de Prevención</h3>
+                        <p>Guía completa para prevenir incendios en el hogar.</p>
+                        <a href="#" class="btn-download">Descargar PDF</a>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <img src="https://via.placeholder.com/400x200" alt="Plan de Evacuación">
+                    <div class="guide-content">
+                        <h3>Plan de Evacuación</h3>
+                        <p>Cómo crear un plan de evacuación efectivo.</p>
+                        <a href="#" class="btn-download">Descargar PDF</a>
+                    </div>
+                </div>
+                <div class="guide-item">
+                    <img src="https://via.placeholder.com/400x200" alt="Primeros Auxilios">
+                    <div class="guide-content">
+                        <h3>Primeros Auxilios</h3>
+                        <p>Guía básica de primeros auxilios para emergencias.</p>
+                        <a href="#" class="btn-download">Descargar PDF</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Emergencias -->
+    <section class="emergency-section">
+        <div class="container">
+            <h2>En Caso de Emergencia</h2>
+            <div class="emergency-grid">
+                <div class="emergency-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Llame al 116</h3>
+                    <p>Servicio de emergencias 24/7</p>
+                </div>
+                <div class="emergency-item">
+                    <i class="fas fa-running"></i>
+                    <h3>Evacúe</h3>
+                    <p>Siga su plan de evacuación</p>
+                </div>
+                <div class="emergency-item">
+                    <i class="fas fa-door-open"></i>
+                    <h3>Punto de Encuentro</h3>
+                    <p>Reúnase en el punto acordado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Acerca de Nosotros</h3>
+                    <p>El Cuerpo de Bomberos Voluntarios está dedicado a la protección de vidas y propiedades en nuestra comunidad.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces de Interés</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contáctenos</h3>
+                    <p>Dirección: Av. Principal N° 123</p>
+                    <p>Emergencias: 116</p>
+                    <p>Email: contacto@bomberosvoluntarios.gob</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2023 Cuerpo de Bomberos Voluntarios. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</qodoArtifact>
+
